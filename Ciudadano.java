@@ -41,7 +41,7 @@ public void setCiudad_origen(String ciudad_origen) {
 }
 
 
-
+//fghjkhgfd
 
 public static void pedir_ciudad(){
      System.out.println("ahora seleccione la ciudad de origen: ");
