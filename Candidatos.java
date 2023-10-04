@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Candidatos extends Ciudadano {
     
     
@@ -7,14 +8,14 @@ public class Candidatos extends Ciudadano {
     private String partido_politico;
     private String lista_promesas;
 
-      public Candidatos(String nombre, String cedula, String ciudad_origen, Derecha partidoderecha,Izquierda partidoizquierda,String orientacionpolitica, String lista_promesas ){
+        public Candidatos(String nombre, String cedula, String ciudad_origen, Derecha partidoderecha,Izquierda partidoizquierda,String orientacionpolitica, String lista_promesas ){
             super(cedula, ciudad_origen, nombre);
             this.orientacion_politica = orientacionpolitica;
             this.partido_derecha = partidoderecha;
             this.partido_izquierda = partidoizquierda;
             this.lista_promesas = lista_promesas;
       
-} 
+    } 
 
 
     public String getOrientacion_politica() {
@@ -57,5 +58,7 @@ public class Candidatos extends Ciudadano {
 
     public void setLista_promesas(String lista_promesas) {
         this.lista_promesas = lista_promesas;
+    //ssdasdasdSS
     }
 }
+
