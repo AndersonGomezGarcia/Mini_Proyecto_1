@@ -106,7 +106,7 @@ public class Candidatos extends Ciudadano {
         enum city {
             Cali,Palmira,Candelaria,Dagua,ElCerrito,
             Florida,Jamundi,LaCumbre,Pradera,Vijes,
-            Yumbo,tulua,buga;
+56            Yumbo,tulua,buga;
         }
         System.out.println("\nPor favor elige una ciudad entre las siguientes");
         for (city city : city.values()) {
@@ -139,3 +139,4 @@ public class Candidatos extends Ciudadano {
      return candidato;
     }
 }
+//
