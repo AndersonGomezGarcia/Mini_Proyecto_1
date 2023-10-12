@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Candidatos extends Ciudadano {
@@ -83,7 +85,6 @@ public class Candidatos extends Ciudadano {
 
     public void setLista_promesas(String lista_promesas) {
         this.lista_promesas = lista_promesas;
-        // ssdasdasdSS
     }
     public static boolean seleccionar_Orientacion_Politica(Scanner scanner) {
         int opcion;
@@ -106,7 +107,7 @@ public class Candidatos extends Ciudadano {
         enum city {
             Cali,Palmira,Candelaria,Dagua,ElCerrito,
             Florida,Jamundi,LaCumbre,Pradera,Vijes,
-56            Yumbo,tulua,buga;
+            Yumbo,tulua,buga;
         }
         System.out.println("\nPor favor elige una ciudad entre las siguientes");
         for (city city : city.values()) {
@@ -122,8 +123,28 @@ public class Candidatos extends Ciudadano {
         }
     }
     public static String crear_Lista_Promesas(Scanner scanner) {
-        String promesas = "Promesas funcion faltante:";
-        return promesas;
+        List<String> promesasList = new ArrayList<>(); // Creamos una lista para almacenar las promesas.
+
+        System.out.println("Ingrese las promesas del candidato (escriba 'fin' para finalizar):");
+
+        while (true) {
+            System.out.print("Promesa: ");
+            String promesa = scanner.nextLine();
+
+            if (promesa.equalsIgnoreCase("fin")) {
+                break; // Terminar la entrada cuando se escriba 'fin'.
+            }
+
+            promesasList.add(promesa); // Agregar la promesa a la lista.
+        }
+
+        // Construir un String con las promesas separadas por '\n'
+        StringBuilder promesasString = new StringBuilder();
+        for (String promesa : promesasList) {
+            promesasString.append(promesa).append("\n");
+        }
+
+        return promesasString.toString();
     }
 
     public static Candidatos crear_Candidatos(Scanner scanner){//Crear candidatos
@@ -138,5 +159,5 @@ public class Candidatos extends Ciudadano {
      Candidatos candidato = new Candidatos(nombre, cedula, ciudad, orientacion , promesas);//inserta los valores seleccionados para crear un nuevo candidato
      return candidato;
     }
+    
 }
-//
