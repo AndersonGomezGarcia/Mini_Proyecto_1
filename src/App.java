@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class App extends Ciudadano {
+public class App extends Ciudadano {//
     private static List<Candidatos> candidatos = new ArrayList<>();
 
     public static void crear_candidato(Scanner scanner, List<Candidatos> candidatos) {

@@ -13,7 +13,7 @@ public class Candidatos extends Ciudadano {
     }
 
     public void setNumero_votos(int numero_votos) {
-        this.numero_votos = numero_votos;
+        this.numero_votos = numero_votos;//
     }
 
     public Candidatos(String nombre, String cedula, String ciudad_origen, boolean orientacionpolitica, String partido_politico, String lista_promesas, int numero_votos) {
