@@ -185,7 +185,6 @@ public class App extends Ciudadano {
                     top3CiudadesConMenosCandidatos(candidatos);
                     break;
             }
-
         } while (opcion != 0);
     }
 }

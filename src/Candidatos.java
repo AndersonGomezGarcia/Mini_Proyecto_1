@@ -234,7 +234,6 @@ public class Candidatos extends Ciudadano {
         //int votos = Candidatos.Votos(scanner, nombre );
         Candidatos candidato = new Candidatos(nombre, cedula, ciudad,  orientacion, partido, promesas, 0);
         // inserta los valores
-        
         Candidatos.print_candidato(nombre, cedula, ciudad, orientacion, partido, promesas);
         
                                                                                              // seleccionados para crear
