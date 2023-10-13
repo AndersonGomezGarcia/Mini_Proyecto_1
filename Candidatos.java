@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Candidatos extends Ciudadano {
-    private boolean orientacion_politica;// Si es positivo es de derecha si es negativo es de izquierda
+    private boolean orientacion_politica;//Si es positivo es de derecha si es negativo es de izquierda
     private String partido_politico;
     private String lista_promesas;
     private int numero_votos;
@@ -110,7 +110,7 @@ public class Candidatos extends Ciudadano {
                 System.out.println("Opción no válida. Por favor, elige 1 o 2.");
             }
         } while (opcion != 1 && opcion != 2);
-        boolean esDerecha = (opcion == 1);// comprueba si eligio derecha y retorna false o true
+        boolean esDerecha = (opcion == 1);//comprueba si eligio derecha y retorna false o true
         return esDerecha;
     }
 
@@ -132,6 +132,7 @@ public class Candidatos extends Ciudadano {
             }
             System.out.println("\nOpción no válida. Por favor ingrese una opciona valida");
         }
+        
     }
 
     public static String seleccionar_Partido_Politico(Scanner scanner, boolean Derecha) {
@@ -172,25 +173,23 @@ public class Candidatos extends Ciudadano {
     
 
     public static String crear_Lista_Promesas(Scanner scanner) {
-        List<String> promesasList = new ArrayList<>(); // Creamos una lista para almacenar las promesas.
+        List<String> promesasList = new ArrayList<>(); //Creamos una lista para almacenar las promesas.
 
         System.out.println("Ingrese las promesas del candidato (escriba 'fin' para finalizar):");
-
+        scanner.nextLine() ;//consume la entrada por cambiar de nextInt a nextline
         while (true) {
             System.out.print("Promesa: ");
             String promesa = scanner.nextLine();
 
             if (promesa.equalsIgnoreCase("fin")) {
-                break; // Terminar la entrada cuando se escriba 'fin'.
-            }
-
-            promesasList.add(promesa); // Agregar la promesa a la lista.
+                break; //Terminar la entrada cuando se escriba 'fin'.
+            }else promesasList.add(promesa); //Agregar la promesa a la lista.
         }
 
-        // Construir un String con las promesas separadas por '\n'
-        StringBuilder promesasString = new StringBuilder();
+        
+        StringBuilder promesasString = new StringBuilder();//Construir un String con las promesas separadas por '\n'
         for (String promesa : promesasList) {
-            promesasString.append(promesa).append("\n|| Promesa de campaña:");
+            promesasString.append("\n|| Promesa de campaña:").append(promesa).append(".");
         }
 
         return promesasString.toString();
@@ -203,13 +202,13 @@ public class Candidatos extends Ciudadano {
                 System.out.print("\nIngrese el número de votos para " + nombre + " con cedula ("+cedula+"): ");
                 int votos = Integer.parseInt(scanner.next());
                 if (votos >= 0) {
-                    return votos; // Salir del bucle si el valor es válido y retornar votos
+                    return votos; //Salir del bucle si el valor es válido y retornar votos
                 } else {
                     System.out.println("El número de votos debe ser un valor no negativo.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Entrada no válida. Debe ingresar un número entero.");
-                scanner.next(); // Limpiar el búfer del scanner para evitar un bucle infinito
+                scanner.next(); //Limpiar el búfer del scanner para evitar un bucle infinito
             }
         }
     }
@@ -219,26 +218,31 @@ public class Candidatos extends Ciudadano {
             orientacion_politica = "Derecha";
         }else {orientacion_politica = "Izquierda";}
     
-        System.out.print("\n\n==============================\n||Candidato\n|| Nombre: "+nombre+"\n|| Cedula: "+cedula+"\n|| Ciudad: "+ ciudad +"\n|| Orientacio Politica: "+ orientacion_politica+"\n|| Partido politico: "+partido+"\n|| Promesas de campaña: "+ promesas );
+        System.out.print("\n\n==============================\n||Candidato\n|| Nombre: "+nombre+"\n|| Cedula: "+cedula+"\n|| Ciudad: "+ ciudad +"\n|| Orientacio Politica: "+ orientacion_politica+"\n|| Partido politico: "+partido+"\n|| Promesas de campaña: "+ promesas +"\n" );
     }
-    public static Candidatos datos_Candidatos(Scanner scanner) {// Crear candidatos
+    public static Candidatos datos_Candidatos(Scanner scanner) {//Crear candidatos
         scanner.nextLine();
         System.out.print("Ingrese el nombre del ciudadano: ");
         String nombre = scanner.nextLine();
+        Funciones.limpiar_pantalla() ;
         System.out.print("Ingrese la cedula del ciudadano: ");
         String cedula = scanner.nextLine();
-        String ciudad = Candidatos.seleccionar_Ciudad_Origen(scanner);// selecciona la ciudad de origen
-        boolean orientacion = Candidatos.seleccionar_Orientacion_Politica(scanner);// selecciona la orientacion politica
+        Funciones.limpiar_pantalla() ;
+        String ciudad = Candidatos.seleccionar_Ciudad_Origen(scanner);//selecciona la ciudad de origen
+        Funciones.presionar_para_continuar(scanner) ;
+        boolean orientacion = Candidatos.seleccionar_Orientacion_Politica(scanner);//selecciona la orientacion politica
+        Funciones.limpiar_pantalla() ;
         String partido = Candidatos.seleccionar_Partido_Politico(scanner, orientacion);
-        String promesas = Candidatos.crear_Lista_Promesas(scanner);// crea las promesas
+        Funciones.presionar_para_continuar(scanner) ;
+        String promesas = Candidatos.crear_Lista_Promesas(scanner);//crea las promesas
         //int votos = Candidatos.Votos(scanner, nombre );
         Candidatos candidato = new Candidatos(nombre, cedula, ciudad,  orientacion, partido, promesas, 0);
-        // inserta los valores
+        //inserta los valores
         
         Candidatos.print_candidato(nombre, cedula, ciudad, orientacion, partido, promesas);
         
-                                                                                             // seleccionados para crear
-                                                                                             // un nuevo candidato
+                                                                                             //seleccionados para crear
+                                                                                             //un nuevo candidato
         return candidato;
     }
     
@@ -264,7 +268,7 @@ public class Candidatos extends Ciudadano {
             System.out.println("No se encontraron candidatos con el nombre " + nombreBuscado + ".");
         }
 
-        return candidatosEncontrados; // Devuelve la lista de candidatos encontrados.
+        return candidatosEncontrados; //Devuelve la lista de candidatos encontrados.
     }
 
 }
